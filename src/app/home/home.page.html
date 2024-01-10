@@ -13,8 +13,16 @@
     </ion-toolbar>
   </ion-header>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+  <ng-container *ngIf="hero">
+    <h1>{{ hero.name }} Details</h1>
+    <p>id: {{ hero.id }}</p>
+    <p>imgSrc: {{ hero.imgSrc }}</p>
+    <ng-container *ngIf="hero.imgSrc">
+      <img [src]="hero.imgSrc">
+    </ng-container>
+  </ng-container>
+
+  <div>
+    <button (click)="takePicture()">Bild aufnehmen</button>
   </div>
 </ion-content>
